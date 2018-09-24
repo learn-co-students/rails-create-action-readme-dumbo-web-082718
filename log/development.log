@@ -40,3 +40,56 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Title Goes Here"], ["description", "Desc goes here..."], ["created_at", "2018-09-24 12:48:12.675240"], ["updated_at", "2018-09-24 12:48:12.675240"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "New Post"], ["description", "This is the new description for the new post"], ["created_at", "2018-09-24 12:49:11.963618"], ["updated_at", "2018-09-24 12:49:11.963618"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+
+
+Started GET "/" for ::1 at 2018-09-24 09:04:24 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/rubyreilly/.rvm/gems/ruby-2.3.3/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 18ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2018-09-24 09:04:28 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 322ms (Views: 320.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-09-24 09:04:34 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-09-24 09:04:50 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p5G1IqsHFS3OpyVw0ck0DaXecWp2ceH8wHtMiOTZpQEy9ZK6BCLRi7rsS7NEHSTRie4QflO+3cfLQhiFYMKUsQ==", "title"=>"Ruby's New Post", "description"=>"this is ruby's new post", "commit"=>"Submit Post"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Ruby's New Post"], ["description", "this is ruby's new post"], ["created_at", "2018-09-24 13:04:50.739543"], ["updated_at", "2018-09-24 13:04:50.739543"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/4" for ::1 at 2018-09-24 09:04:50 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 32ms (Views: 26.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for ::1 at 2018-09-24 09:04:55 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 0.1ms)
