@@ -1,0 +1,15 @@
+params hash -
+ When a user submits a form,
+ it is the params hash that contains
+ all the input data.
+
+
+ 1. we'll be able to initialize a new instance of Post,
+ 2. grab those input values from params,
+ 3. assign them the post instance attributes and
+ 4. save the instance to our database.
+
+
+*****Rails tries to map each
+controller action directly to a template.*******
+ 
